@@ -15,7 +15,13 @@
 # it. As always, there is a test suite that checks the result. It is in 
 # `question2_test.py.`
 
-swapper = None
+def swapper(tuple):#intercambiar valores
+    x, y = tuple
+    return (y, x)
 
-def run_swapper(list_of_tuples):
-  return list(map(swapper, list_of_tuples))
+swapper = swapper
+
+def run_swapper(list_of_tuples):#aplica swapper a una lista de tuplas
+    return list(map(swapper, list_of_tuples))
+
+

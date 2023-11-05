@@ -26,19 +26,52 @@
 # formulas and their outputs in the test file, `question3_test.py`.
 
 # This function should return an oven instance!
-def make_oven():
-  None
+class MagicalOven:
+    def __init__(self):#constructor
+        self.ingredients = [] # lista de ingredientes
+        self.temperature = 0
 
-def alchemy_combine(oven, ingredients, temperature):
-  
-  for item in ingredients:
-    oven.add(item)
+    def add(self, item): #agrega ingredientes
+        self.ingredients.append(item)
 
-  if temperature < 0:
-    oven.freeze()
-  elif temperature >= 100:
-    oven.boil()
-  else:
-    oven.wait()
+    def freeze(self): #congela
+        self.temperature = -10
 
-  return oven.get_output()
+    def boil(self): #hierve los ingredientes
+        self.temperature = 110
+
+    def wait(self): #Método de espera
+        pass
+
+    def get_output(self): #Obtiene la salida del horno en función de los ingredientes y la temperatura.
+        if "lead" in self.ingredients and "mercury" in self.ingredients:
+            return "gold"
+        elif "water" in self.ingredients and "air" in self.ingredients:
+            return "snow"
+        elif "cheese" in self.ingredients and "dough" in self.ingredients and "tomato" in self.ingredients:
+            return "pizza"
+        else:
+            return "unknown"
+
+def make_oven(): #Crea y devuelve una nueva instancia del horno mágico.
+    return MagicalOven()
+
+def alchemy_combine(oven, ingredients, temperature): #Combina ingredientes en el horno a una temperatura específica y devuelve la salida.
+    for item in ingredients:
+        oven.add(item)
+
+    if temperature < 0:
+        oven.freeze()
+    elif temperature >= 100:
+        oven.boil()
+    else:
+        oven.wait()
+
+    return oven.get_output()
+
+
+
+
+
+
+
